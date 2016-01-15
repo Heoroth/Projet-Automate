@@ -16,6 +16,18 @@ public class Moteur {
 	ArrayList<Character> F;
 	ArrayList<Character> T;
 
+	// constructeur
+	public Moteur() {
+
+		this.alphabetEntree = new ArrayList<Character>();
+		this.sorties = new ArrayList<Character>();
+		this.etatInit = new ArrayList<Character>();
+		if (etatInit.size() == 0) {
+			etatInit.add('0');
+		}
+
+	}
+
 	public void lectureFichier(String fichier) {
 
 		try {
@@ -25,23 +37,31 @@ public class Moteur {
 			ligne = str.readLine();
 			int i = 0;
 			while (ligne != null && i < ligne.length()) {
-				if (ligne.charAt(i) != ' ' && ligne.charAt(i) != '"' && ligne.charAt(0) == 'M' && i > 0) {
-					meta=ligne.charAt(i);
+				if (ligne.charAt(i) != ' ' && ligne.charAt(i) != '"'
+						&& ligne.charAt(0) == 'M' && i > 0) {
+					meta = ligne.charAt(i);
 					i++;
-				}else if (ligne.charAt(i) != ' ' && ligne.charAt(i) != '"' && ligne.charAt(0) == 'V' && i > 0) {
+				} else if (ligne.charAt(i) != ' ' && ligne.charAt(i) != '"'
+						&& ligne.charAt(0) == 'V' && i > 0) {
 					alphabetEntree.add(ligne.charAt(i));
 					i++;
-				} else if (ligne.charAt(i) != ' ' && ligne.charAt(i) != '"' && ligne.charAt(0) == 'O' && i > 0) {
-					//O.add(ligne.charAt(i));
+				} else if (ligne.charAt(i) != ' ' && ligne.charAt(i) != '"'
+						&& ligne.charAt(0) == 'O' && i > 0) {
+					// O.add(ligne.charAt(i));
 					i++;
-				} else if (ligne.charAt(i) != ' ' && ligne.charAt(0) == 'E' && i > 0) {
-					nbEtats=(ligne.charAt(i));
+				} else if (ligne.charAt(i) != ' ' && ligne.charAt(0) == 'E'
+						&& i > 0) {
+					nbEtats = (ligne.charAt(i));
 					i++;
-				} else if (ligne.charAt(i) != ' ' && ligne.charAt(i) != '"' && ligne.charAt(0) == 'I' && i > 0) {// a definir les conditions pour I
+				} else if (ligne.charAt(i) != ' ' && ligne.charAt(i) != '"'
+						&& ligne.charAt(0) == 'I' && i > 0) {// a definir les
+																// conditions
+																// pour I
 					etatInit.add(ligne.charAt(i));
 					i++;
-				} else if (ligne.charAt(i) != ' ' && ligne.charAt(0) == 'F' && i > 0) {
-					//F.add(ligne.charAt(i));
+				} else if (ligne.charAt(i) != ' ' && ligne.charAt(0) == 'F'
+						&& i > 0) {
+					// F.add(ligne.charAt(i));
 					i++;
 				}
 
@@ -66,38 +86,23 @@ public class Moteur {
 		}
 
 	}
-	
-	
-	//constructeur pour test
-		public Moteur(){
-			
-			this.alphabetEntree = new ArrayList<Character>();
-			this.sorties = new ArrayList<Character>();
-			this.nbEtats = nbEtats;
-			if(etatInit.size() == 1){
-				etatInit.add('0');
-			}
-			else{
-				this.etatInit = new ArrayList<Character>(); 
-			}
-			
-			 
-		}
 
-		public void afficheAlphabetEntree(){
-			for(int i = 0; i<this.alphabetEntree.size(); i++){
-				System.out.println("Alphabet d'entree : " + this.alphabetEntree.get(i));
-			}
+	public void afficheAlphabetEntree() {
+		for (int i = 0; i < this.alphabetEntree.size(); i++) {
+			System.out.println("Alphabet d'entree : "
+					+ this.alphabetEntree.get(i));
 		}
-		
-		public void afficheNombreEtat(){
-			System.out.println("Il y a : " + this.nbEtats + " etats");
+	}
+
+	public void afficheNombreEtat() {
+		System.out.println("Il y a : " + this.nbEtats + " etats");
+	}
+
+	public void afficheEtatInit() {
+		for (int i = 0; i < this.etatInit.size(); i++) {
+			System.out.println("Etat initial/initiaux : "
+					+ this.etatInit.get(i));
 		}
-		
-		public void afficheEtatInit(){
-			for(int i = 0; i<this.etatInit.size(); i++){
-				System.out.println("Etat initial/initiaux : " + this.etatInit.get(i));
-			}
-		}
+	}
 
 }
