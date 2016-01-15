@@ -7,14 +7,14 @@ import java.util.ArrayList;
 
 public class Moteur {
 
-	private String nomFichier = "mini.descr";
-	private char meta;
-	private ArrayList<Character> alphabetEntree; // vocabulaire d'entree
-	private ArrayList<Character> sorties;
-	private char nbEtats;
-	private ArrayList<Character> etatInit;
-	private ArrayList<Character> F;
-	private ArrayList<Character> T;
+	private String nomFichier = "mini.descr"; //fichier .descr qui sera lu pour la création de l'automate
+	private char meta; //meta caractere pour arreter la saisie
+	private ArrayList<Character> alphabetEntree; //liste du vocabulaire d'entree
+	private ArrayList<Character> sorties; //liste du vocabulaire de sortie
+	private char nbEtats; //nombre d'états dans l'AEF
+	private ArrayList<Character> etatInit; //liste des etats init de l'AEF
+	private ArrayList<Character> etatsAcceptants; //liste des etats acceptant
+	private ArrayList<Character> transitions; //liste des transitions
 
 	// constructeur
 	public Moteur() {
@@ -87,10 +87,22 @@ public class Moteur {
 
 	}
 
+	//Ensemble des méthodes d'affichage des éléments constituant l'AEF
+	public void afficheMetaChar(){
+		System.out.println("Meta caractere : " + this.meta);
+	}
+
 	public void afficheAlphabetEntree() {
 		for (int i = 0; i < this.alphabetEntree.size(); i++) {
 			System.out.println("Alphabet d'entree : "
 					+ this.alphabetEntree.get(i));
+		}
+	}
+	
+	public void afficheAlphabetSotie(){
+		for (int i = 0; i < this.sorties.size(); i++) {
+			System.out.println("Alphabet de sortie : "
+					+ this.sorties.get(i));
 		}
 	}
 
@@ -103,6 +115,58 @@ public class Moteur {
 			System.out.println("Etat initial/initiaux : "
 					+ this.etatInit.get(i));
 		}
+	}
+	
+	public void afficheEtatsAcceptants(){
+		for (int i = 0; i < this.etatsAcceptants.size(); i++) {
+			System.out.println("Etat(s) acceptant(s) : "
+					+ this.etatsAcceptants.get(i));
+		}
+	}
+	
+	public void afficheTransitions(){
+		for (int i = 0; i < this.transitions.size(); i++) {
+			System.out.println("Transition(s) : "
+					+ this.transitions.get(i));
+		}
+	}
+
+	//Ensemble des getters sur les variables d'instance du moteur AEF
+	public ArrayList<Character> getAlphabetEntree() {
+		return this.alphabetEntree;
+	}
+
+	public String getNomFichier() {
+		return nomFichier;
+	}
+
+
+	public char getMeta() {
+		return meta;
+	}
+
+
+	public ArrayList<Character> getSorties() {
+		return sorties;
+	}
+
+
+	public char getNbEtats() {
+		return nbEtats;
+	}
+
+
+	public ArrayList<Character> getEtatInit() {
+		return etatInit;
+	}
+
+
+	public ArrayList<Character> getEtatsAcceptants() {
+		return etatsAcceptants;
+	}
+
+	public ArrayList<Character> getTransitions() {
+		return transitions;
 	}
 
 }
