@@ -1,17 +1,18 @@
-import java.util.ArrayList;
+import java.io.IOException;
 
 
-public class testMoteur {
+public class Test {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		Moteur monMoteur = new Moteur();
-		monMoteur.afficheAlphabetEntree();
-		monMoteur.afficheNombreEtat();
-		monMoteur.afficheEtatInit();
+		Moteur moteur= new Moteur();
+		
+		moteur.lectureFichier("mini.descr");
+		moteur.afficheAlphabetEntree();
+		moteur.afficheEtatInit();
+		moteur.afficheNombreEtat();
 	}
+
+
 
 }
