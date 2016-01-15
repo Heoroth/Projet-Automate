@@ -7,14 +7,14 @@ import java.util.ArrayList;
 
 public class Moteur {
 
-	String nomFichier = "mini.descr";
-	char meta;
-	ArrayList<Character> alphabetEntree; // vocabulaire d'entree
-	ArrayList<Character> sorties;
-	char nbEtats;
-	ArrayList<Character> etatInit;
-	ArrayList<Character> F;
-	ArrayList<Character> T;
+	private String nomFichier = "mini.descr";
+	private char meta;
+	private ArrayList<Character> alphabetEntree; // vocabulaire d'entree
+	private ArrayList<Character> sorties;
+	private char nbEtats;
+	private ArrayList<Character> etatInit;
+	private ArrayList<Character> F;
+	private ArrayList<Character> T;
 
 	// constructeur
 	public Moteur() {
